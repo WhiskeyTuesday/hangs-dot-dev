@@ -1,0 +1,27 @@
+{
+	"name": "hangs-dot-dev",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"res:build": "rescript",
+		"res:watch": "rescript build -w",
+		"vite_dev": "vite dev",
+		"dev": "concurrently \"npm:res:watch\" \"npm:vite_dev\"",
+		"build": "npm run res:build && vite build",
+		"preview": "vite preview",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"concurrently": "^8.2.2",
+		"eslint": "^8.28.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"rescript": "^10.1.4",
+		"svelte": "^5.0.0-next.1",
+		"vite": "^5.0.3"
+	},
+	"type": "module"
+}

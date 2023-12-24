@@ -1,0 +1,20 @@
+<article>
+  <header><h3>{"{hang_title}"}</h3></header>
+  {"{location}"}{"{or_virtual}"}
+  <br>
+  <br>
+  {"{image}"}
+  <br>
+  <br>
+  {"{host_avatar}"}
+  {"{host_name}"}
+  <br>
+  <br>
+  {"{description}"}
+  {"{date}"}{"{time}"}{"{timezone}"}
+  <br>
+  <br>
+  {"{description}"}
+  {"{content}"}
+  <footer>{"{rsvp_buttons}"}</footer>
+</article>
