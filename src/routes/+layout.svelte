@@ -175,6 +175,7 @@
       <li><a href="/"><em><strong>Hangs.dev - LFG</strong></em></a></li>
     </ul>
     <ul>
+      <!-- TODO dynamic login/logout here -->
       <li><a href="/login" class="secondary">Log In</a></li>
     </ul>
   </nav>

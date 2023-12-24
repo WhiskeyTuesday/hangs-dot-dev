@@ -11,6 +11,7 @@
     <input type="text" name="code" placeholder="Enter a code" />
     <button type="submit">Go</button>
   </form>
+  <!-- TODO: conditional on not being logged in/registration state -->
   <footer>Or <a href="/login">log in</a> to start your own hang</footer>
 </article>
 
