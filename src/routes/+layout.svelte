@@ -1,4 +1,16 @@
 <script>
+  import { onAuthStateChanged } from "firebase/auth";
+  import { auth as firebaseAuth } from "$lib/firebase";
+
+  let user = null;
+  onAuthStateChanged(firebaseAuth, (u) => {
+    console.log("auth state changed", u);
+    if (u) {
+      user = u.providerId ? u.providerId : null;
+    } else {
+      user = null;
+    }
+  });
 </script>
 
 <navbar>
@@ -177,6 +189,7 @@
     <ul>
       <!-- TODO dynamic login/logout here -->
       <li><a href="/login" class="secondary">Log In</a></li>
+      <li><span>{user}</span></li>
     </ul>
   </nav>
 

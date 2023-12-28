@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <article>
   <header><h3>{"{hang_title}"}</h3></header>
   {"{location}"}{"{or_virtual}"}

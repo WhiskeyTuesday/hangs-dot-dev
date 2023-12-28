@@ -23,5 +23,14 @@
 		"svelte": "^5.0.0-next.1",
 		"vite": "^5.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"firebase": "^10.7.1",
+		"html5-qrcode": "^2.3.8",
+		"is-uuid": "^1.0.2",
+		"jwt-decode": "^4.0.0",
+		"ngeohash": "^0.6.3",
+		"qrcode": "^1.5.3",
+		"svelte-easy-crop": "^2.0.2"
+	}
 }
