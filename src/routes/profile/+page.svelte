@@ -3,18 +3,30 @@
   // copy some stuff from dtb
   // uhh... yeah
 
-  import { auth as firebaseAuth } from "$lib/firebase";
+  import { auth as firebaseAuth } from "$lib/firebase.svelte";
 
   import {
     // twitterAuthProvider,
     signInWithPopup,
     GithubAuthProvider,
     getAdditionalUserInfo,
+    onAuthStateChanged,
   } from "firebase/auth";
 
+  let { user } = $props();
+  let loggedIn = $state(!!user?.user);
 
-  let isTryingAuth = false;
-  let authFailed = false;
+  onAuthStateChanged(firebaseAuth, (u) => {
+    console.log("state changed", u || "null");
+    if (u) {
+      loggedIn = true;
+    } else {
+      loggedIn = false;
+    }
+  });
+
+  let isTryingAuth = $state(false);
+  let authFailed = $state(false);
 
   const signIn = async () => {
     const githubProvider = new GithubAuthProvider();
@@ -59,18 +71,32 @@
   };
 </script>
 
-<article>
-  <header><h3>Log In</h3></header>
-  <ul>
-    <li>TODO: log in with twitter/x button</li>
-    <li>TODO: log in with github button</li>
-  </ul>
+{#if loggedIn}
+  <article>
+    <header><h3>Profile</h3></header>
+    <ul>
+      <li>TODO: show profile info</li>
+      <li>TODO: show profile picture</li>
+      <li>TODO: show profile name</li>
+      <li>TODO: show profile email</li>
+    </ul>
+    <footer>
+      <button on:click={signOut}>Log Out</button>
+    </footer>
+  </article>
+{:else}
+  <article>
+    <header><h3>Log In</h3></header>
+    <ul>
+      <li>TODO: log in with twitter/x button</li>
+      <li>TODO: log in with github button</li>
+    </ul>
 
-  <button on:click={signIn}>Log In With GitHub</button>
-  <button on:click={signOut}>Log Out</button>
-
-  <footer>TODO</footer>
-</article>
+    <footer>
+      <button on:click={signIn}>Log In With GitHub</button>
+    </footer>
+  </article>
+{/if}
 
 <dialog open={authFailed}>
   <p>Authentication failed.</p>

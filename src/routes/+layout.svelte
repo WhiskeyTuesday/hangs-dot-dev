@@ -1,16 +1,33 @@
 <script>
+  import { auth as firebaseAuth } from "$lib/firebase.svelte";
   import { onAuthStateChanged } from "firebase/auth";
-  import { auth as firebaseAuth } from "$lib/firebase";
 
-  let user = null;
+  let userState = $state(null);
+
+  export const user = {
+    get user() { return userState; },
+    logIn: (u) => userState = u,
+    logOut: () => userState = null,
+  };
+
+  let avatar = $state(user.user || '👤');
+  let loggedIn = $state(false);
+
+  $effect(() => {
+    avatar = (user.user?.displayName || '👤').slice(0, 2);
+    loggedIn = !!user.user;
+  });
+
   onAuthStateChanged(firebaseAuth, (u) => {
-    console.log("auth state changed", u);
+    console.log("state changed", u || "null");
     if (u) {
-      user = u.providerId ? u.providerId : null;
+      user.logIn(u);
+      avatar = (u.displayName || u.email || u.phoneNumber).slice(0, 2);
     } else {
-      user = null;
+      user.logOut();
     }
   });
+
 </script>
 
 <navbar>
@@ -188,12 +205,13 @@
     </ul>
     <ul>
       <!-- TODO dynamic login/logout here -->
-      <li><a href="/login" class="secondary">Log In</a></li>
-      <li><span>{user}</span></li>
+      <li><a href="/profile" class="secondary">Log In</a></li>
+      <li><span>{avatar}</span></li>
+      <li><span>{user.user?.length}</span></li>
     </ul>
   </nav>
 
-  <slot />
+  <slot user />
 </main>
 
 <style>
