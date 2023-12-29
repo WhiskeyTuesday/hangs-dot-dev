@@ -17,9 +17,11 @@
   let loggedIn = $state(!!user?.user);
 
   onAuthStateChanged(firebaseAuth, (u) => {
-    console.log("state changed", u || "null");
     if (u) {
       loggedIn = true;
+      // TODO: compare avatar to stored avatar (update?)
+      // TODO: check if same email address is used with other provider...
+      // in which case... do something? merge accounts? prompt? idk.
     } else {
       loggedIn = false;
     }
@@ -75,14 +77,25 @@
   <article>
     <header><h3>Profile</h3></header>
     <ul>
-      <li>TODO: show profile info</li>
       <li>TODO: show profile picture</li>
       <li>TODO: show profile name</li>
       <li>TODO: show profile email</li>
+      <li>TODO: etc...</li>
+      <li>Get self from server:</li>
+      <ul>
+        <li>TODO: show attended, hosting, invites, etc.</li>
+      </ul>
     </ul>
     <footer>
       <button on:click={signOut}>Log Out</button>
     </footer>
+  </article>
+{:else if isTryingAuth}
+  <article>
+    <header><h3>Logging In...</h3></header>
+    <ul>
+      <li>TODO: show spinner</li>
+    </ul>
   </article>
 {:else}
   <article>

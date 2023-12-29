@@ -10,16 +10,16 @@
     logOut: () => userState = null,
   };
 
-  let avatar = $state(user.user || '👤');
+  // TODO: something better lol -- also handle twitter login
+  let avatar = $state(user.user?.displayName?.slice(0, 2) || false);
   let loggedIn = $state(false);
 
   $effect(() => {
-    avatar = (user.user?.displayName || '👤').slice(0, 2);
+    avatar = (user.user?.displayName).slice(0, 2);
     loggedIn = !!user.user;
   });
 
   onAuthStateChanged(firebaseAuth, (u) => {
-    console.log("state changed", u || "null");
     if (u) {
       user.logIn(u);
       avatar = (u.displayName || u.email || u.phoneNumber).slice(0, 2);
@@ -27,7 +27,6 @@
       user.logOut();
     }
   });
-
 </script>
 
 <navbar>
@@ -205,9 +204,11 @@
     </ul>
     <ul>
       <!-- TODO dynamic login/logout here -->
-      <li><a href="/profile" class="secondary">Log In</a></li>
-      <li><span>{avatar}</span></li>
-      <li><span>{user.user?.length}</span></li>
+      {#if loggedIn}
+        <li><a href="/profile">{avatar}</a></li>
+      {:else}
+        <li><a href="/profile">Log In</a></li>
+      {/if}
     </ul>
   </nav>
 
