@@ -8,7 +8,7 @@ src/routes/settings	0x1.961ea9ed7f757p+30
 src/routes/create	0x1.961eb3b36dc98p+30
 src/routes/profile	0x1.96374536e0487p+30
 src/routes/calendar	0x1.961eb2ee1a3e6p+30
-src/routes/hang	0x1.962d4b6268bc6p+30
+src/routes/hang	0x1.9639091e9cf7ep+30
 src/routes/hang/[id]	0x1.96197f99582e3p+30
 src/routes/ads	0x1.961ef6b934685p+30
 src/routes/secret	0x1.961d11878b2abp+30

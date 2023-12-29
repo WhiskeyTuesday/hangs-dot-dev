@@ -1,14 +1,5 @@
 <script>
-  import { page } from '$app/stores';
-  import { redirect } from '$app/navigation';
-
-  const url = $page.url;
-  const params = new URLSearchParams(url.search);
-  const code = params.get('code');
-  console.log('code', code);
-  if (code) {
-    throw redirect(302, `/hang/${code}`);
-  }
+  let code = false;
 </script>
 
 {#if !code}
