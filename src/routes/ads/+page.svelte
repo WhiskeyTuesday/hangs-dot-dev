@@ -9,7 +9,7 @@
 
   <ul>
     <li>LMNT</li>
-    <li>Dr. Pepper</li>
+    <li>Dr Pepper</li>
     <li>Zwift</li>
     <li>AG-1</li>
     <li>Svelte(kit)</li>
