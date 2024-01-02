@@ -2,7 +2,7 @@
 /home/ers/aoic/ehangs
 0
 bsconfig.json	0x1.96137fcb59913p+30
-src	0x1.962d0314c6b0bp+30
+src	0x1.96520efeed14fp+30
 src/routes	0x1.9637798660ddbp+30
 src/routes/settings	0x1.961ea9ed7f757p+30
 src/routes/create	0x1.961eb3b36dc98p+30
@@ -12,6 +12,7 @@ src/routes/hang	0x1.9639091e9cf7ep+30
 src/routes/hang/[id]	0x1.96197f99582e3p+30
 src/routes/ads	0x1.961ef6b934685p+30
 src/routes/secret	0x1.961d11878b2abp+30
+src/components	0x1.96520efeed14fp+30
 src/lib	0x1.96385543f6e4bp+30
 src/lib/assets	0x1.962d0325c0825p+30
 ===
