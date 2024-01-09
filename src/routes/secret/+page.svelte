@@ -1,6 +1,13 @@
 <article>
   <header><h3>Yep, that's me</h3></header>
-  <p>You're probably wondering how I ended up in this situation.</p>
+
+  <blockquote>
+    "You're probably wondering how I ended up in this situation."
+    <footer>
+      <cite>- Unknown</cite>
+    </footer>
+  </blockquote>
+
   <p>
     Did you know that that line isn't actually from a movie or tv show? It turns
     out it was specifically created as a meme.
